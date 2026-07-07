@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulários</title>
+  </head>
+  <body>
+    <header class="header" id="home">
+      <h1>Minha Loja Online</h1>
+
+      <nav class="nav-menu">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#produtos">Produtos</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <h2>Produtos</h2>
+        <p>TO FAZENDO AINDA N TA VENDO??</p>
+      </section>
+
+      <section id="contato">
+        <h2>Cadastro / Contato</h2>
+
+        <form class="form-contact" novalidate>
+          <fieldset>
+            <legend>Dados do usuário</legend>
+
+            <label for="input-name">Nome Completo:</label>
+            <input
+              type="text"
+              id="input-name"
+              name="name"
+              maxlength="50"
+              minlength="3"
+              placeholder="Seu nome completo"
+              required
+            />
+
+            <label for="input-email">Email:</label>
+            <input
+              type="email"
+              id="input-email"
+              name="email"
+              placeholder="exmeplo@gmail.com"
+              required
+            />
+
+            <label for="input-pass">Senha:</label>
+            <input
+              type="password"
+              id="input-pass"
+              name="password"
+              placeholder="Sua Senha"
+              minlength="8"
+              required
+            />
+
+            <label for="input-age">Idade:</label>
+            <input type="number" id="input-age" name="age" min="18" max="80" />
+          </fieldset>
+
+          <fieldset>
+            <legend>Preferências</legend>
+
+            <label for="categoria">Selecione:</label>
+            <select id="categoria" name="categoria">
+              <option value="eletronicos">Eletrônicos</option>
+              <option value="roupas">Roupas</option>
+              <option value="perfumes">Perfumes</option>
+
+            </select>
+
+            <p>Tipo de Pessoa:</p>
+            <label>
+                <input type="radio" name="tipo" value="pf" required> Pessoa Física
+            </label>
+            <label>
+                <input type="radio" name="tipo" value="pf" required> Pessoa Juridica
+            </label>   
+            <label>
+                <input type="radio" name="tipo" value="pf" required> AI BOSONARO
+            </label> 
+
+            <p>Preferências:</p>
+            <label>
+                <input type="checkbox" name="promo"> Quero Receber Promo no Email!
+            </label>
+            <label>
+                <input type="checkbox" name="novidads"> Quero Receber Novidades no Email!
+            </label>
+
+
+
+          </fieldset>
+<br>
+          <button type="submit">Enviar</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>
