@@ -1,135 +1,212 @@
 /* Adicionando fonte Nova */
 @font-face {
-    font-family: Crewniverse;
-    src: url(crewniverse_font.otf);
-         font-weight: normal;
-         font-style: normal;
-         font-display: swap;
+  font-family: Crewniverse;
+  src: url(crewniverse_font.otf);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 /* Resetando o style da Página */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 /* corpo da pagina */
 body {
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    background-color: #F8FAFC;
-    color: #333;
-    
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: #f8fafc;
+  color: #333;
+
+  margin-top: 220px;
+  transition: 0.35s;
+}
+
+main {
+  padding-top: 16px;
+}
+
+body.scrolled {
+  margin-top: 160px;
+}
+main.scrolled {
+  padding-top: 0px;
 }
 
 /* Cabeçalho */
 .header {
-    font-family: Crewniverse, sans-serif;
-    letter-spacing: 0px;
-    color: black;
+  font-family: Crewniverse, sans-serif;
+  letter-spacing: 0px;
+  color: black;
 
-    justify-content: center;
-    display: flex;
+  justify-content: center;
+  display: flex;
 
-    background-color: #EEF2FF;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
+  background-color: #eef2ff;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  transition: 0.45s ease;
+  z-index: 1000;
+}
+header img {
+  width: 180px;
+  transition: 0.3s;
+}
+header h1 {
+  transition: 0.45s;
+}
+header nav a {
+  font-size: 20px;
+  transition: 0.45s;
+}
+/* Quando scrollar transformar e transicionar*/
+header.scrolled {
+  height: 80px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+header.scrolled img {
+  width: 70px;
+}
+header.scrolled h1 {
+  font-size: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 30px;
+}
+header.scrolled nav a {
+  font-size: 20px;
+}
+header b {
+  transition: 0.3s;
+}
+header.scrolled b {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
 }
 
 /* Nav */
-nav.nav-menu a {
-    text-decoration: none;
-    color: #5d12ce;
-    margin-left: 10px;
+.nav-menu a {
+  text-decoration: none;
+  color: #5d12ce;
+  margin-left: 10px;
+  transition: 0.75s;
 }
 .nav-menu {
-    display: flex;
-    justify-content: center;
-    border: 100px;
+  display: inline-block;
+  justify-content: center;
+  border: 100px;
+}
+/* Quando estiver em cima trocar a cor */
+.nav-menu a:hover {
+  color: #2a0b58;
 }
 
 /* Sobre mim */
 .about {
-    margin: 20px;
+  margin: 20px;
 }
 .about p {
-    margin: 10px;
+  margin: 10px;
 }
 
 /* Habilidades */
 .habilities {
-    margin: 20px;
+  margin: 20px;
 }
 .habilities ul {
-    margin: 30px;
+  margin: 30px;
 }
 
 /* Projetos */
 .projects {
-    margin: 20px;
+  margin: 20px;
 }
 .projects img {
-    margin: 20px;
-    
+  margin: 20px;
 }
 .projects p {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .projects ul {
-        margin-left: 30px;
-        margin-top: 5px;
-        margin-bottom: 10px;
+  margin-left: 30px;
+  margin-top: 5px;
+  margin-bottom: 10px;
 }
 
 /* Hobbies */
 .hobbies {
-    margin: 20px;
+  margin: 20px;
 }
 .hobbies p {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 .hobbies ul {
-    margin-left: 30px;
-    margin-bottom: 20px;
+  margin-left: 30px;
+  margin-bottom: 20px;
 }
 .hobbies img {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 .hobbies h3 {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
+/* Contatos */
 .contact {
-    margin: 20px;
+  margin: 20px;
 }
 
 /* Definição de cada titulo 2 */
 h2 {
-    margin-bottom: 10px;
-
+  margin-bottom: 10px;
 }
+/* Depois de um Titulo2 É obrigatório tal tal tal */
 h2::after {
-    content: "";
-    display: block;
-    width: 100%;
-    height: 4px;
-    background: #5d12ce;
-    border-radius: 10px;
-    margin-top: 8px;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #5d12ce;
+  border-radius: 10px;
+  margin-top: 8px;
 }
 
 /*Rodapé*/
 .footer {
-    font-family: Crewniverse, sans-serif;
-    letter-spacing: 0px;
-    color: black;
+  font-family: Crewniverse, sans-serif;
+  letter-spacing: 0px;
+  color: black;
 
-    justify-content: center;
-    display: flex;
+  justify-content: center;
+  display: flex;
 
-    background-color: #EEF2FF;
-    padding: 20px;
-    text-align: center;
-    text-decoration: none;
+  background-color: #eef2ff;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* Corrigir o posicionamento quando utilizar um Nav-Menu */
+#sobre,
+#habilidades,
+#projetos,
+#c\&h,
+#contato {
+  scroll-margin-top: 100px;
 }

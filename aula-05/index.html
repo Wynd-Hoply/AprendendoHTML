@@ -4,14 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Minha Página Pessoal</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="shortcut icon" href="wyndzinho.webp" />
   </head>
-  <body>
-    <header class="header">
+  <body id="body">
+    <!-- Cabeçalho -->
+    <header class="header" id="header">
       <table>
         <tr>
           <td>
-            <img src="wyndcode.jpg" alt="Foto de Perfil github" width="200" />
+            <a href="#home"
+              ><img src="wyndcode.jpg" alt="Foto de Perfil github" width="200"
+            /></a>
           </td>
           <td>
             <h1>Iarly Araújo</h1>
@@ -20,6 +24,8 @@
           </td>
         </tr>
       </table>
+
+      <!-- Navegação -->
       <nav class="nav-menu">
         <table>
           <tr>
@@ -34,6 +40,7 @@
     </header>
 
     <main>
+      <!-- Sobre Mim -->
       <section id="sobre" class="about">
         <h2>Sobre Mim</h2>
 
@@ -79,6 +86,7 @@
         </section>
       </section>
 
+      <!-- Habilidades -->
       <section id="habilidades" class="habilities">
         <h2>Habilidades</h2>
 
@@ -132,6 +140,7 @@
         </section>
       </section>
 
+      <!-- Projetos -->
       <section id="projetos" class="projects">
         <h2>Projetos</h2>
 
@@ -151,7 +160,9 @@
 
             <table>
               <tr>
-                <td><img src="projeto1.jpg" alt="Projeto Notion" width="500" /></td>
+                <td>
+                  <img src="projeto1.jpg" alt="Projeto Notion" width="500" />
+                </td>
                 <td>
                   <p>
                     "Aprendi que integrar APIs não é apenas consumir dados, mas
@@ -198,6 +209,7 @@
         </section>
       </section>
 
+      <!-- Curiosidades e Hobbies -->
       <section id="c&h" class="hobbies">
         <h2>Curiosidades e Hobbies</h2>
 
@@ -218,7 +230,17 @@
             <li><strong>Vento / Esperança</strong></li>
           </ul>
 
-          <p>Um jovem feiticeiro que perdeu a família e o reino no mesmo dia. Mestre do ar e do clima, viu sua vida mudar quando a Irmandade Fantasma destruiu tudo o que conhecia. No auge do desespero, desencadeou uma tempestade de proporções devastadoras, eletrificando um exército inteiro. Desde então, tornou-se alvo da própria Irmandade, que passou a chamá-lo de <strong>"Garoto de Stormen"</strong> por causa daquele único acontecimento. Apesar do passado, Wynd não vive movido pela vingança.</p>
+          <p>
+            Um jovem feiticeiro que perdeu a família e o reino no mesmo dia.
+            Mestre do ar e do clima, viu sua vida mudar quando a Irmandade
+            Fantasma destruiu tudo o que conhecia. No auge do desespero,
+            desencadeou uma tempestade de proporções devastadoras, eletrificando
+            um exército inteiro. Desde então, tornou-se alvo da própria
+            Irmandade, que passou a chamá-lo de
+            <strong>"Garoto de Stormen"</strong> por causa daquele único
+            acontecimento. Apesar do passado, Wynd não vive movido pela
+            vingança.
+          </p>
 
           <table>
             <tr>
@@ -260,6 +282,7 @@
         </section>
       </section>
 
+      <!-- Contatos -->
       <section id="contato" class="contact">
         <h2>Contato</h2>
         <p><b>GitHub:</b> https://github.com/Wynd-Hoply</p>
@@ -275,5 +298,6 @@
     <footer class="footer">
       <p>2026 &copy; Wynd Hoply LTDA, <b>All Rights Reserved.</b></p>
     </footer>
+    <script src="script.js"></script>
   </body>
 </html>
