@@ -1,0 +1,273 @@
+/* Adicionando fonte Nova */
+@font-face {
+  font-family: Crewniverse;
+  src: url(crewniverse_font.otf);
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Resetando o style da Página */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* corpo da pagina */
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  background-color: #f8fafc;
+  color: #333;
+
+  margin-top: 45px;
+  transition: 0.35s;
+}
+
+main {
+  padding: 20px;
+}
+
+/* Cabeçalho Fixo */
+.header {
+  font-family: Crewniverse, sans-serif;
+  letter-spacing: 0px;
+  color: black;
+
+  background-color: #eef2ff;
+  padding: 20px 5%;
+  text-align: center;
+  text-decoration: none;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.45s ease;
+  z-index: 1000;
+}
+.logotipo {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+header h1 {
+  transition: 0.45s;
+}
+
+/* Quando scrollar transformar e transicionar*/
+header.scrolled {
+  min-height: 80px;
+  height: auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  padding: 10px 5%;
+}
+
+header.scrolled h1 {
+  font-size: clamp(20px, 2vw, 28px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: auto;
+}
+
+header.scrolled nav a {
+  font-size: clamp(16px, 2vw, 20px);
+}
+
+/*  */
+.about {
+  margin: 20px;
+}
+
+/* Sobre mim */
+.about p {
+  margin: 10px;
+}
+.about-content {
+  display: flex;
+  flex-direction: column;
+  gap: 0px;
+}
+
+.about-content {
+  background: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Definição de altura de cada imagem */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Definição de cada titulo e Paragrafo */
+h2 {
+  margin-bottom: 25px;
+  font-size: clamp(26px, 2vw, 36px);
+}
+h3 {
+  font-size: clamp(24px, 2vw, 28px);
+}
+p,
+ul {
+  font-size: clamp(20px, 2vw, 22px);
+  line-height: 1.7;
+}
+/* Depois de um Titulo2 É obrigatório tal tal tal */
+h2::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #5d12ce;
+  border-radius: 10px;
+  margin-top: 8px;
+}
+
+/*Rodapé*/
+.footer {
+  font-family: Crewniverse, sans-serif;
+  letter-spacing: 0px;
+  color: black;
+
+  justify-content: center;
+  display: flex;
+
+  background-color: #eef2ff;
+  padding: 35px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.page-icon {
+  border-radius: 40px;
+}
+
+/* Corrigir o posicionamento quando utilizar um Nav-Menu */
+#sobre {
+  scroll-margin-top: 100px;
+}
+
+.produtos {
+    margin: 20px;
+}
+
+#lista-produtos {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card-produto {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.1);
+    width: 220px;
+}
+
+.card-produto h3 {
+    margin-bottom: 10px;
+}
+
+.card-produto p {
+    font-size: 18px;
+}
+
+@media (max-width: 900px) {
+  .project-highlight {
+    flex-direction: column;
+  }
+
+  body {
+    margin-top: 160px;
+  }
+
+  .project-highlight img {
+    width: 100%;
+  }
+
+  .project-highlight blockquote {
+    width: 100%;
+    font-size: 0.6rem;
+    line-height: 0.9;
+  }
+}
+
+@media (max-width: 900px) {
+  .header {
+    flex-direction: column;
+    gap: 20px;
+    height: auto;
+  }
+
+  .nav-menu {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 767px) {
+  main {
+    padding: 0px;
+  }
+  .logotipo h1 {
+    font-size: 1.5rem;
+    line-height: 0.9;
+  }
+  .nav-menu a {
+    font-size: 0.6rem;
+    line-height: 0.3;
+  }
+
+  .header {
+    transition: none;
+  }
+
+  body {
+    margin-top: 163px;
+  }
+
+  header.scrolled img {
+    max-width: 80px;
+  }
+
+  header.scrolled {
+    transform: none;
+  }
+
+  .project-highlight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  #sobre {
+    scroll-margin-top: 155px;
+  }
+
+  .about {
+    margin: 16px;
+  }
+  section {
+  }
+
+  .about p {
+    margin-bottom: 15px;
+    line-height: 1.2;
+    font-size: 1.2rem;
+  }
+}
+
+

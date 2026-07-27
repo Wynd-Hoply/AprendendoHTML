@@ -48,7 +48,34 @@ document.querySelectorAll('.nav-menu a').forEach(link => {
     });
   });
 });
-/* Eu sei que eu poderia fazer direto no CSS. Mas eu prefiro desse jeito pela velocidade. 
+/* Eu sei que eu poderia fazer direto no CSS. Mas eu prefiro desse jeito pela velocidade.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 html {
     scroll-behavior: smooth;
