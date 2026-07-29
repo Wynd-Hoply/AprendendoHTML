@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Minha Lojinha</title>
+    <link rel="stylesheet" href="style.css" />
+    <link class="page-icon" rel="shortcut icon" href="wyndzinho.webp" />
+  </head>
+  <body id="body">
+    <!-- Cabeçalho -->
+    <header class="header" id="header">
+      <div class="logotipo">
+        <div>
+          <h1>Nome da Loja</h1>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- Sobre Mim -->
+      <section id="sobre" class="about">
+        <h2>Sobre</h2>
+
+        <div class="about-content"></div>
+      </section>
+
+      <section class="produtos">
+        <h2>Produtos</h2>
+
+        <div id="product-list"></div>
+      </section>
+
+      <section class="todo">
+        <h2>Lista de Tarefas</h2>
+
+        <div class="todo-content">
+          <input type="text" id="nova-tarefa" placeholder="Digite uma tarefa" />
+          <button id="adicionar">Adicionar</button>
+          <ul id="lista-tarefas"></ul>
+        </div>
+      </section>
+
+      <section class="contato">
+        <h2>Contato</h2>
+
+        <form id="formulario" class="contact-content">
+          <label for="name">Nome:</label>
+          <input type="text" id="name" name="name"  />
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" />
+
+          <label for="message">Mensagem:</label>
+          <textarea id="message" name="message" ></textarea>
+
+          <button type="submit" class="send-form">Enviar</button>
+          <p id="mensagem"></p>
+        </form>
+
+      </section>
+    </main>
+
+    <!--Rodapé-->
+    <footer class="footer">
+      <p>2026 &copy; Wynd Hoply LTDA, <b>All Rights Reserved.</b></p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
