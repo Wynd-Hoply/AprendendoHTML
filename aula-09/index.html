@@ -15,20 +15,38 @@
           <h1>Nome da Loja</h1>
         </div>
       </div>
+      <div class="mini-cart">
+        <span>🛒</span>
+
+        <span id="cart-count">0</span>
+
+        <div class="mini-cart-dropdown" id="mini-cart-dropdown">
+          <ul id="mini-cart-list"></ul>
+
+          <p id="mini-total">Total: R$ 0</p>
+        </div>
+      </div>
     </header>
 
     <main>
-      <!-- Sobre Mim -->
-      <section id="sobre" class="about">
-        <h2>Sobre</h2>
-
-        <div class="about-content"></div>
-      </section>
-
-      <section class="produtos">
+      <section id="produtos" class="products">
         <h2>Produtos</h2>
 
         <div id="product-list"></div>
+      </section>
+      
+      <section class="cart">
+        <h2>Carrinho</h2>
+        <div class="cart-content">
+        <ul id="cart-list"></ul>
+
+        <p id="total">Total: R$ 0</p>
+
+        <button id="finalizar-compra">finalizar Compra</button>
+
+        <p id="mensagem-compra"></p>
+
+        </div>
       </section>
 
       <section class="todo">
@@ -46,18 +64,17 @@
 
         <form id="formulario" class="contact-content">
           <label for="name">Nome:</label>
-          <input type="text" id="name" name="name"  />
+          <input type="text" id="name" name="name" />
 
           <label for="email">Email:</label>
           <input type="email" id="email" name="email" />
 
           <label for="message">Mensagem:</label>
-          <textarea id="message" name="message" ></textarea>
+          <textarea id="message" name="message"></textarea>
 
           <button type="submit" class="send-form">Enviar</button>
           <p id="mensagem"></p>
         </form>
-
       </section>
     </main>
 

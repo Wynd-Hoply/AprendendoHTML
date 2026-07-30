@@ -1,60 +1,161 @@
+let productList;
+let cartList;
+let totalEl;
+
+let btnFinalizar;
+let mensagemCompra;
+
+let cartCount;
+let miniList;
+let miniTotal;
+
+let carrinho = [];
+
 const PRODUTOS = [
   {
     id: 1,
     nome: "Smartphone",
     preco: 7500,
-    categoria: "Eletrônicos",
     imagem: "img/iphone.jpg",
   },
   {
     id: 2,
     nome: "Camiseta",
     preco: 250,
-    categoria: "Roupas",
     imagem: "img/camisa.jpg",
   },
   {
     id: 3,
     nome: "Relógio",
     preco: 100000,
-    categoria: "Acessórios",
     imagem: "img/relogio.jpg",
   },
 ];
 
-const CONTAINER = document.getElementById("product-list");
+function renderizarProdutos() {
+  productList.innerHTML = "";
 
-function renderizarProdutos(lista) {
-  CONTAINER.innerHTML = "";
-
-  lista.forEach((produto) => {
+  PRODUTOS.forEach((produto) => {
     const CARD = document.createElement("div");
-    CARD.classList.add("product-list");
+    CARD.classList.add("product-card");
 
     CARD.innerHTML = `
-      <img src="${produto.imagem} " alt "${produto.nome}">
-      <h3>${produto.nome}</h3>
-      <p>R$ ${produto.preco}</p>
-      `;
+    <img src="${produto.imagem}" alt="${produto.nome}">
+    <h3>${produto.nome}</h3>
+    <p>R$ ${produto.preco}</p>
+    <button>Adicionar ao carrinho</button>
+    `;
 
-    CONTAINER.appendChild(CARD);
+    CARD.querySelector("button").addEventListener("click", () => {
+      adicionarAoCarrinho(produto.id);
+    });
+
+    productList.appendChild(CARD);
   });
 }
 
-renderizarProdutos(PRODUTOS);
+function adicionarAoCarrinho(id) {
+  const produto = PRODUTOS.find((p) => p.id === id);
 
-const novosProdutos = [
-  ...PRODUTOS,
-  {
-    id: 4,
-    nome: "Notebook",
-    preco: 3500,
-    categoria: "Eletrônicos",
-    imagem: "https://via.placeholder.com/150",
-  },
-];
+  carrinho.push(produto);
+  salvarCarrinho();
+}
 
-renderizarProdutos(novosProdutos);
+// renderizar carrinho
+function renderizarCarrinho() {
+  cartList.innerHTML = "";
+
+  let total = 0;
+  carrinho.forEach((item, index) => {
+    total += item.preco;
+
+    const li = document.createElement("li");
+
+    li.innerHTML = `
+    ${item.nome} - R$ ${item.preco}
+    <button>Remover</button>
+    `;
+
+    li.querySelector("button").addEventListener("click", () => {
+      carrinho.splice(index, 1);
+      salvarCarrinho();
+    });
+    cartList.appendChild(li);
+  });
+
+  totalEl.textContent = `Total: R$ ${total}`;
+}
+
+// mini cart
+
+function atualizarMiniCarrinho() {
+  cartCount.textContent = carrinho.length;
+
+  miniList.innerHTML = "";
+
+  let total = 0;
+
+  carrinho.forEach((item) => {
+    total += item.preco;
+
+    const li = document.createElement("li");
+    li.textContent = `Total: R$ ${total}`;
+  });
+}
+
+// Finalizar compra
+
+function finalizarCompra() {
+  if (carrinho.length === 0) {
+    mensagemCompra.textContent = "Seu carrinho tá vazio chefe!";
+    mensagemCompra.style.color = "red";
+    return;
+  }
+
+  mensagemCompra.textContent = "Compra realizada chefe!";
+  mensagemCompra.style.color = "green";
+
+  carrinho = [];
+
+  salvarCarrinho();
+}
+
+// Localstorage
+
+function salvarCarrinho() {
+  localStorage.setItem("carrinho", JSON.stringify(carrinho));
+
+  renderizarCarrinho();
+  atualizarMiniCarrinho();
+}
+
+// INICIALIZAÇÃO DO SISTEMA!
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Captura elementos do DOM
+  productList = document.getElementById("product-list");
+  cartList = document.getElementById("cart-list");
+  totalEl = document.getElementById("total");
+
+  cartCount = document.getElementById("cart-count");
+  miniList = document.getElementById("mini-cart-list");
+  miniTotal = document.getElementById("mini-total");
+
+  // Elementos do checkout
+  btnFinalizar = document.getElementById("finalizar-compra");
+  mensagemCompra = document.getElementById("mensagem-compra");
+
+  // Recupera dados salvos
+  carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
+
+  // Renderização inicial
+  renderizarProdutos();
+  renderizarCarrinho();
+  atualizarMiniCarrinho();
+
+  // Evento do botão finalizar compra
+  btnFinalizar.addEventListener("click", finalizarCompra);
+});
 
 const FORM = document.getElementById("formulario");
 const MENSAGEM = document.getElementById("mensagem");
@@ -74,25 +175,49 @@ FORM.addEventListener("submit", (event) => {
   }
 });
 
-const inputTarefa = document.getElementById("nova-tarefa")
-const botaoAdicionar = document.getElementById("adicionar")
-const lista = document.getElementById("lista-tarefas")
+const inputTarefa = document.getElementById("nova-tarefa");
+const botaoAdicionar = document.getElementById("adicionar");
+const lista = document.getElementById("lista-tarefas");
 
-let tarefas
+let tarefas = JSON.parse(localStorage.getItem("tarefas")) || [];
 
+function renderizarTarefas() {
+  lista.innerHTML = "";
 
+  tarefas.forEach((tarefa, index) => {
+    const li = document.createElement("li");
+    li.textContent = tarefa;
 
+    const btn = document.createElement("button");
+    btn.textContent = "Remover";
 
+    btn.addEventListener("click", () => {
+      tarefas.splice(index, 1);
+      salvar();
+    });
 
+    li.appendChild(btn);
+    lista.appendChild(li);
+  });
+}
 
+function salvar() {
+  localStorage.setItem("tarefas", JSON.stringify(tarefas));
+  renderizarTarefas();
+}
 
+botaoAdicionar.addEventListener("click", () => {
+  const nova = inputTarefa.value;
 
+  if (nova !== "") {
+    tarefas.push(nova);
+    inputTarefa.value = "";
+    salvar();
+  }
+});
 
-
-
-
-
-
+// iniciar
+renderizarTarefas();
 
 // Cria uma constante que puxa a id "Header"
 const header = document.getElementById("header");

@@ -1,10 +1,38 @@
-/* Adicionando fonte Nova */
-@font-face {
-  font-family: Crewniverse;
-  src: url(crewniverse_font.otf);
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
+
+
+:root {
+  --font-body: Georgia, "Times New Roman", Times, serif;
+  --font-heading: Crewniverse, sans-serif;
+
+  --color-bg: #f8fafc;
+  --color-text: #333;
+  --color-surface: #ffffff;
+  --color-header-bg: #eef2ff;
+  --color-primary: #4f46e5;
+  --color-primary-dark: #3730a3;
+  --color-accent: #5d12ce;
+  --color-border: #dddddd;
+  --color-shadow: rgba(0, 0, 0, 0.08);
+  --color-shadow-strong: rgba(0, 0, 0, 0.15);
+  --color-focus-shadow: rgba(79, 70, 229, 0.3);
+
+  --radius-sm: 8px;
+  --radius-md: 15px;
+
+  --spacing-xs: 5px;
+  --spacing-sm: 10px;
+  --spacing-md: 15px;
+  --spacing-lg: 20px;
+  --spacing-xl: 25px;
+  --spacing-2xl: 35px;
+  --spacing-3xl: 40px;
+
+  --header-offset: 100px;
+  --header-offset-mobile: 160px;
+  --header-offset-small: 163px;
+  --transition-fast: 0.3s;
+  --transition-medium: 0.35s;
+  --transition-slow: 0.45s;
 }
 
 /* Resetando o style da Página */
@@ -16,28 +44,28 @@
 
 /* corpo da pagina */
 body {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  background-color: #f8fafc;
-  color: #333;
-
-  margin-top: 45px;
-  transition: 0.35s;
+  font-family: var(--font-body);
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  margin-top: var(--header-offset);
+  transition: var(--transition-medium);
 }
 
 main {
-  padding: 20px;
+  padding: var(--spacing-lg);
 }
 
 /* Cabeçalho Fixo */
 .header {
-  font-family: Crewniverse, sans-serif;
-  letter-spacing: 0px;
+  font-family: var(--font-heading);
+  letter-spacing: 0;
   color: black;
 
-  background-color: #eef2ff;
+  background-color: var(--color-header-bg);
   padding: 20px 5%;
   text-align: center;
   text-decoration: none;
+  opacity: 0.98;
 
   position: fixed;
   top: 0;
@@ -45,34 +73,34 @@ main {
   width: 100%;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  transition: 0.45s ease;
+  transition: var(--transition-slow) ease;
   z-index: 1000;
 }
-.logotipo {
+
+.mini-cart {
   display: flex;
-  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
 header h1 {
-  transition: 0.45s;
+  transition: var(--transition-slow);
 }
 
 /* Quando scrollar transformar e transicionar*/
 header.scrolled {
   min-height: 80px;
   height: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 5px 15px var(--color-shadow-strong);
   padding: 10px 5%;
 }
 
 header.scrolled h1 {
   font-size: clamp(20px, 2vw, 28px);
-
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -85,26 +113,45 @@ header.scrolled nav a {
 
 /*  */
 .about {
-  margin: 20px;
+  margin: var(--spacing-lg);
 }
 
 /* Sobre mim */
 .about p {
-  margin: 10px;
+  margin: var(--spacing-sm);
 }
+
 .about-content {
   display: flex;
   flex-direction: column;
-  gap: 0px;
+  gap: 0;
 }
+
+.products h2 {
+ text-align: center;
+ margin-bottom: 20px;
+ }
+
+ #product-list {
+ display: grid;
+
+ /* Cria colunas automáticas responsivas */
+ grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+
+ gap: 20px; /* Espaçamento entre cards */
+ }
+
 
 .about-content,
 .contact-content,
-.todo-content {
-  background: white;
-  padding: 40px;
-  border-radius: 15px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+.todo-content,
+.product-list,
+.cart-content {
+  background: var(--color-surface);
+  padding: var(--spacing-3xl);
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 30px var(--color-shadow);
+  margin-bottom: 10px;
 }
 
 .contact-content {
@@ -113,8 +160,8 @@ header.scrolled nav a {
 }
 
 label {
-  margin-bottom: 5px;
-  margin-top: 5px;
+  margin-bottom: var(--spacing-xs);
+  margin-top: var(--spacing-xs);
   line-height: 1.5;
   font-size: 1.2rem;
 }
@@ -123,10 +170,10 @@ input,
 textarea {
   width: 250px;
   padding: 10px;
-  border: 2px solid #ddd;
-  border-radius: 8px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
   font-size: 15px;
-  transition: 0.3s;
+  transition: var(--transition-fast);
 }
 
 textarea {
@@ -138,27 +185,27 @@ textarea {
 input:focus,
 textarea:focus {
   outline: none;
-  border-color: #4f46e5;
-  box-shadow: 0 0 8px rgba(79, 70, 229, 0.3);
+  border-color: var(--color-primary);
+  box-shadow: var(--color-focus-shadow);
 }
 
 button {
   padding: 12px 25px;
-  background: #4f46e5;
+  background: var(--color-primary);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
   font-size: 15px;
-  transition: 0.3s;
+  transition: var(--transition-fast);
 }
 
 .send-form {
-  margin-top: 10px;
+  margin-top: var(--spacing-sm);
 }
 
 button:hover {
-  background: #3730a3;
+  background: var(--color-primary-dark);
   transform: translateY(-2px);
 }
 
@@ -181,36 +228,39 @@ h2 {
   margin-bottom: 25px;
   font-size: clamp(26px, 2vw, 36px);
 }
+
 h3 {
   font-size: clamp(24px, 2vw, 28px);
 }
+
 p,
 ul {
   font-size: clamp(20px, 2vw, 22px);
   line-height: 1.7;
 }
+
 /* Depois de um Titulo2 É obrigatório tal tal tal */
 h2::after {
   content: "";
   display: block;
   width: 100%;
   height: 4px;
-  background: #5d12ce;
+  background: var(--color-accent);
   border-radius: 10px;
   margin-top: 8px;
 }
 
 /*Rodapé*/
 .footer {
-  font-family: Crewniverse, sans-serif;
-  letter-spacing: 0px;
+  font-family: var(--font-heading);
+  letter-spacing: 0;
   color: black;
 
   justify-content: center;
   display: flex;
 
-  background-color: #eef2ff;
-  padding: 35px;
+  background-color: var(--color-header-bg);
+  padding: var(--spacing-2xl);
   text-align: center;
   text-decoration: none;
 }
@@ -219,31 +269,28 @@ h2::after {
   border-radius: 40px;
 }
 
-/* Corrigir o posicionamento quando utilizar um Nav-Menu */
-#sobre {
-  scroll-margin-top: 100px;
-}
+
 
 .produtos {
-  margin: 20px;
+  margin-top: var(--spacing-lg);
 }
 
 #product-list {
   display: flex;
-  gap: 20px;
+  gap: var(--spacing-lg);
   flex-wrap: wrap;
 }
 
 .product-list {
-  background: white;
-  padding: 20px;
-  border-radius: 15px;
+  background: var(--color-surface);
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-md);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
   width: 220px;
 }
 
 .product-list h3 {
-  margin-bottom: 10px;
+  margin-bottom: 0;
 }
 
 .product-list p {
@@ -256,7 +303,7 @@ h2::after {
   }
 
   body {
-    margin-top: 160px;
+    margin-top: var(--header-offset-mobile);
   }
 
   .project-highlight img {
@@ -285,12 +332,14 @@ h2::after {
 
 @media (max-width: 767px) {
   main {
-    padding: 0px;
+    padding: 0;
   }
+
   .logotipo h1 {
     font-size: 1.5rem;
     line-height: 0.9;
   }
+
   .nav-menu a {
     font-size: 0.6rem;
     line-height: 0.3;
@@ -301,7 +350,7 @@ h2::after {
   }
 
   body {
-    margin-top: 163px;
+    margin-top: var(--header-offset-small);
   }
 
   header.scrolled img {
@@ -318,6 +367,7 @@ h2::after {
     align-items: center;
     gap: 20px;
   }
+
   #sobre {
     scroll-margin-top: 155px;
   }
